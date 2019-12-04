@@ -15,7 +15,7 @@
     "hbs": "~4.0.0",
     "moment": "^2.21.0",
     "morgan": "~1.7.0",
-    "mysql": "~2.12.0",
+    "mysql": "~2.14.0",
     "node-uuid": "*",
     "nprogress": "^0.2.0",
     "serve-favicon": "~2.3.0"
