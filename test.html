@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    li:nth-last-child(odd) {
+      color: lime;
+    }
+
+    .parent {
+      width: 400px;
+      height: 400px;
+      border: 1px solid #ccc;
+    }
+
+    .parent>.erzi {
+      width: 100px;
+      height: 100px;
+      background-color: lime;
+    }
+
+    .parent .sunzi {
+      width: 50px;
+      height: 50px;
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+
+  
+  <script>
+
+    // 实现new 实例的过程
+
+    function myfn(name,age) {
+      //new实现了那些操作
+      //1.创建了一个对象
+      
+      let obj = {}
+
+      //2.为新对象添加一个属性__proto__，将myfn()函数的显示原型给到obj.__proto__,
+      //  让新对象通过__proto__属性可以访问到 myfn的显示原型
+      obj.__proto__ = myfn.prototype
+      
+      //3.更改myfn函数的this指向，让其指向新创建的对象
+      let result = myfn.apply(obj,arguments)
+
+      this.name = name
+      this.age = age
+      
+      console.log(result)
+      
+      return typeof result === 'Object' ? result : obj
+
+    }
+    
+    let fn1 = myfn('reobrn',18)
+  </script>
+</body>
+
+</html>
