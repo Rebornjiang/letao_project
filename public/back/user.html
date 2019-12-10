@@ -27,13 +27,15 @@
         <!-- 两个状态正常与禁用 -->
         <td>{{v.isDelete === 1 ? '正常':'禁用'}}</td>
 
+        <td data-id="{{v.id}}">
         {{if v.isDelete === 1}}
-        <td><button class="btn btn-danger">禁用</button></td>
+        <button class="btn btn-danger" >禁用</button>
         {{/if}}
 
         {{if v.isDelete === 0}}
-        <td><button class="btn btn-success">启用</button></td>
+        <button class="btn btn-success" >启用</button>
         {{/if}}
+        </td>
 
       </tr>
     {{/each}}
@@ -124,7 +126,7 @@
     </div>
   </div>
 
-  <!-- 模态框 -->
+  <!-- 退出按钮的模态框 -->
   <!-- 外面是蒙层 -->
   <div class="modal fade" tabindex="-1" id="logoutModal">
 
@@ -160,6 +162,35 @@
     <!-- /.modal-dialog -->
   </div>
   <!-- /.modal -->
+
+  <!-- 启用禁用的模态框 -->
+  <!-- Modal -->
+  <div class="modal fade bs-example-modal-sm" id="switchModal" tabindex="-1">
+
+    <div class="modal-dialog modal-sm">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">温馨提示</h4>
+        </div>
+
+        <div class="modal-body">
+          <i class="glyphicon glyphicon-info-sign red"></i>
+          <span>你确定要执行此操作吗？</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" id="switch">确认</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 
 
 </body>

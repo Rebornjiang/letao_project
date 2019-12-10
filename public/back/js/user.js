@@ -48,8 +48,47 @@ $(function() {
   
 
   
+  // 用户的启用功能与禁用功能
+      // 为什么不能够给#switch元素成功绑定事件？ 是因为#switch元素是通过模板引擎动态渲染的数据
+      // 一开始页面中是没有的，后面才加上的。如果要给他们绑定事件，就需要通过事件委托来进行绑定
+  //  $("#switch").click(function() {
+  //    console.log('开启或是关闭')
+  //   // 
+  //  })
 
+
+  let currentId = null;
+  let isDelete = null;
+  // 调用模态框
+  $('tbody').on('click','.btn',function() {
    
+    currentId = $(this).parent().attr('data-id')
+    isDelete = $(this).hasClass('btn-danger') ? 0 : 1
+    $('#switchModal').modal()
+  })
 
 
+  //用户的启用功能与禁用功能
+  $('#switch').click(function() {
+   
+    // 启用或是禁用
+    $.ajax({
+      url:'/user/updateUser',
+      type:'post',
+      data:{
+        id:currentId,
+        isDelete
+      },
+      dataType:'json',
+      success(info) {
+        if (info.success) {
+          render()
+
+        }
+      }
+    })
+
+    $('#switchModal').modal('hide')
+  })
 })
+
