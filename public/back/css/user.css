@@ -1,0 +1,8 @@
+  .lt-content .content table thead th {
+    text-align: center;
+  }
+
+  .lt-content .content table tbody td {
+    vertical-align: middle;
+    text-align: center;
+  }

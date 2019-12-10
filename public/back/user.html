@@ -8,11 +8,33 @@
   <title>myself-乐淘商城</title>
   <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
   <link rel="stylesheet" href="./css/common.css">
-  <link rel="stylesheet" href="./css/index.css">
+  <link rel="stylesheet" href="./css/user.css">
   <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
 </head>
 
+
 <body>
+  <!-- 模板引擎 -->
+  <script type="text/html" id="tpl">
+    {{each rows v i}}
+    <tr>
+        <td>{{i + 1}}</td>
+        <td>{{v.username}}</td>
+        <td>{{v.mobile}}</td>
+        <!-- 两个状态正常与禁用 -->
+        <td>{{v.isDelete === 1 ? '正常':'禁用'}}</td>
+
+        {{if v.isDelete === 1}}
+        <td><button class="btn btn-danger">禁用</button></td>
+        {{/if}}
+
+        {{if v.isDelete === 0}}
+        <td><button class="btn btn-success">启用</button></td>
+        {{/if}}
+
+      </tr>
+    {{/each}}
+  </script>
 
   <!-- 左边侧边栏 -->
   <div class="lt-aside">
@@ -75,6 +97,24 @@
           <span style="color: #777777">用户管理</span>
         </li>
       </ol>
+
+      <!-- 表格 -->
+      <table class="table table-bordered table-hover">
+
+        <thead>
+          <th width="10%">序号</th>
+          <th width="20%">用户名</th>
+          <th width="30%">手机号</th>
+          <th width="20%">状态</th>
+          <th width="20%">操作</th>
+        </thead>
+        <tbody>
+
+          <!-- 占坑 -->
+
+
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -88,14 +128,17 @@
       <div class="modal-content">
 
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" >
+          <button type="button" class="close" data-dismiss="modal">
             <span>&times;</span>
           </button>
           <h4 class="modal-title">温馨提示</h4>
         </div>
 
         <div class="modal-body">
-          <p class="red"><i class="glyphicon glyphicon-info-sign"></i><span> 您确定要退出后台管理系统吗？</span></p>
+          <p class="red">
+            <i class="glyphicon glyphicon-info-sign"></i>
+            <span> 您确定要退出后台管理系统吗？</span>
+          </p>
         </div>
 
         <div class="modal-footer">
@@ -118,5 +161,7 @@
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
 <script src="./js/common.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./js/user.js"></script>
 
 </html>
