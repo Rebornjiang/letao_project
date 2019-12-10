@@ -27,7 +27,7 @@
 
     <ul>
       <li>
-        <a href="user.html">
+        <a href="user.html" class="">
           <i class="glyphicon glyphicon-user"></i>
           <span>用户管理</span>
         </a>
@@ -38,8 +38,8 @@
           <span>分类管理</span>
         </a>
         <!-- 二级菜单 -->
-        <div class="level2 hidden">
-          <a href="first.html">一级分类</a>
+        <div class="level2">
+          <a href="first.html" class="current">一级分类</a>
           <a href="second.html">二级分类</a>
 
         </div>
@@ -65,26 +65,20 @@
       </a>
     </div>
 
-    <div class="content mt_20">
 
+    <div class="content mt_20">
       <ol class="breadcrumb bread-nav" style="background-color: #f5f5f5;">
         <li>
           <a href="#">管理系统</a>
         </li>
         <li>
-          首页
+          <span style="color: #777777">分类管理</span>
+        </li>
+        <li>
+          <span style="color: #777777">一级分类</span>
         </li>
       </ol>
-
-      <!-- echarts图表 -->
-      <div class="echarts mt_20">
-
-        <div class="charts-bar pull-left"></div>
-        <div class="charts-pie pull-right"></div>
-      </div>
-
     </div>
-
   </div>
 
   <!-- 模态框 -->
@@ -130,7 +124,5 @@
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
 <script src="./js/common.js"></script>
-<script src="./lib/echarts/echarts.min.js"></script>
-<script src="./js/index.js"></script>
 
 </html>

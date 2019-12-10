@@ -1,7 +1,5 @@
-function Person(name,age) {
-  this.name = name;
-  this.age = age;
+function fn () {
+
 }
 
-var p1 = new Person('reborn',18)
-console.log(p1)
+console.log(fn.prototype)

@@ -1,6 +1,23 @@
-body,html {
-  background-color: #fff;
-  position: relative;
-  width: 100%;
+.lt-content .content {
   height: 100%;
+}
+.lt-content .content .echarts {
+  margin-top: 20px;
+  height: 400px;
+  width: 100%;
+}
+
+.lt-content .content .echarts .charts-bar
+
+
+ {
+  width: 48%;
+  height: 400px;
+
+}
+
+.lt-content .content .echarts .charts-pie {
+  width: 48%;
+  height: 400px;
+
 }
