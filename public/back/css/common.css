@@ -186,3 +186,10 @@ li {
   padding: 0 15px;
 }
 
+/* 公共样式让表格都居中 */
+
+
+th,tr {
+  text-align: center;
+  vertical-align: center;
+}
