@@ -189,7 +189,8 @@ li {
 /* 公共样式让表格都居中 */
 
 
-th,tr {
+.table.table-bordered th,
+.table.table-bordered td {
   text-align: center;
-  vertical-align: center;
+  vertical-align: middle;
 }

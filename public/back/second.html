@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="./css/common.css">
   <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+  <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
 </head>
 
 <body>
@@ -39,7 +40,7 @@
         </a>
         <!-- 二级菜单 -->
         <div class="level2">
-          <a href="first.html" >一级分类</a>
+          <a href="first.html">一级分类</a>
           <a href="second.html" class="current">二级分类</a>
 
         </div>
@@ -78,8 +79,134 @@
           <span style="color: #777777">二级分类</span>
         </li>
       </ol>
+
+      <!-- 添加二级分类 -->
+      <button class="btn btn-default" id="addCategory">添加分类</button>
+
+      <table class="table mt_20 table-striped table-bordered table-hover">
+
+
+        <thead>
+          <th width="10%">序号</th>
+          <th width="35%">一级分类名称</th>
+          <th width="35%">二级分类名称</th>
+          <th width="20%">二级分类LOGO</th>
+        </thead>
+
+        <tbody>
+
+          <!-- 用 模板引擎渲染，占个坑 -->
+        </tbody>
+      </table>
+
+
+      <!-- 分页功能 -->
+      <div style="text-align: right">
+        <ul id="paginator"></ul>
+
+      </div>
+
+
     </div>
   </div>
+
+  <!-- 表格渲染模板 -->
+  <script type="text/html" id='tpl'>
+    {{ each rows v i}}
+    <tr>
+        <td>{{i + 1 + (page -1 ) * size}}</td>
+        <td>{{v.categoryName}}</td>
+        <td>{{v.brandName}}</td>
+        <td><img src="{{v.brandLogo}}" alt="这是张品牌logo" style="height:50px;"></td>
+    </tr>
+    {{ /each}}
+  </script>
+
+  <!-- 一级分类模板渲染 -->
+  <script type="text/html" id="firstTpl">
+    {{ each rows v i}}
+    <li><a href="#" data-id="{{v.id}}">{{v.categoryName}}</a></li>
+    {{ /each }}
+  </script>
+
+  <!-- 添加二级分类模态框 -->
+  <div class="modal fade bs-example-modal-sm" id="addCategoryModal" tabindex="-1">
+    <div class="modal-dialog modal-sm">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span>&times;</span>
+          </button>
+          <h4 class="modal-title" id="myModalLabel">添加分类</h4>
+        </div>
+
+        <form>
+          <div class="modal-body">
+
+            <!-- 表单input -->
+            <!-- 利用表单进行提交，只能提交Input的框里面的内容。
+            现在由于使用的是组件，没有input，是提交不了。如果想要提交要怎么办？
+            可以使用input的隐藏域来存储btn下拉列表组件中的值进行提交。
+            -->
+            <div class="form-group">
+              <!-- 下拉列表 -->
+              <div class="btn-group">
+
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span id="firstBtnText">请选择一级分类</span>
+                  <span class="caret"></span>
+                </button>
+
+                <ul class="dropdown-menu" id="firstCategory">
+
+                  <!-- 一级分类模板渲染占坑 -->
+
+                </ul>
+              </div>
+
+              <!-- 隐藏域 -->
+              <input type="hidden" name="categoryId">
+            </div>
+
+            <!-- 将form表单包裹在modal中部和底部结构外面，这样才能使用底部的添加btn -->
+            <div class="form-group">
+              <input type="text" name="brandName" class="form-control" id="exampleInputEmail1" placeholder="请输入二级分类">
+            </div>
+
+            <div class="form-group">
+
+              
+              <label class="btn btn-default" for="fileupload">上传图片</label>
+              <!-- 提交图片地址的隐藏域 -->
+              <input type="hidden" name="brandLogo">
+
+              <input type="file"  data-url="/category/addSecondCategoryPic" id="fileupload" style="display: none">
+            </div>
+
+            <input type="hidden" name="hot" value="1">
+
+            <div class="from-group" id="imgBox">
+              <img src="images/none.png" alt="" width="100px">
+            </div>
+
+
+
+
+
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">添加</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
 
   <!-- 模态框 -->
   <!-- 外面是蒙层 -->
@@ -124,5 +251,13 @@
 <script src="./lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="./lib/nprogress/nprogress.js"></script>
 <script src="./js/common.js"></script>
+<script src="./lib/artTemplate/template-web.js"></script>
+<script src="./lib/bootstrap-paginator/bootstrap-paginator.min.js"></script>
+<!-- 文件上传插件 -->
+<script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+<script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
+
+<script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+<script src="./js/second.js"></script>
 
 </html>
