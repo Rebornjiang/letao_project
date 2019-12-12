@@ -28,39 +28,25 @@
       height: 50px;
       background-color: yellow;
     }
+    div {
+      width: 100px;
+      height: 100px;
+      border: 1px solid #ccc;
+    }
   </style>
 </head>
 
 <body>
-
+  <button >点击添加元素</button>
+  <div></div>
   
+  <script src="./public/back/lib/jquery/jquery.js"></script>
   <script>
 
-    // 实现new 实例的过程
+    $('button').click(() => {
+      $('div').prepend('<h1>你好啊</h1>')
 
-    function myfn(name,age) {
-      //new实现了那些操作
-      //1.创建了一个对象
-      
-      let obj = {}
-
-      //2.为新对象添加一个属性__proto__，将myfn()函数的显示原型给到obj.__proto__,
-      //  让新对象通过__proto__属性可以访问到 myfn的显示原型
-      obj.__proto__ = myfn.prototype
-      
-      //3.更改myfn函数的this指向，让其指向新创建的对象
-      let result = myfn.apply(obj,arguments)
-
-      this.name = name
-      this.age = age
-      
-      console.log(result)
-      
-      return typeof result === 'Object' ? result : obj
-
-    }
-    
-    let fn1 = myfn('reobrn',18)
+    })
   </script>
 </body>
 
