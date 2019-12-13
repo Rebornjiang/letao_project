@@ -1,0 +1,63 @@
+.lt_container .lt_search {
+  position: absolute;
+  top: 45px;
+  bottom: 55px;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+}
+/* 搜索头部区域 */
+.lt_container .lt_search .header {
+  padding: 10px;
+  position: relative;
+}
+
+.lt_container .lt_search .header input {
+  height: 34px;
+  width: 100%;
+  border: 1px solid #007AFF;
+  line-height: 34px;
+  padding: 0 15px;  
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.lt_container .lt_search .header button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 0 5px 5px 0;
+}
+
+/* 搜索中间标题 */
+.lt_container .lt_search .lt_history {
+  padding: 0 10px;
+}
+.lt_container .lt_search .title {
+  color: #666;
+  font-size: 12px;
+  padding: 10px;
+}
+
+
+/* 搜索历史记录 */
+.lt_container .lt_search ul {
+  
+  border: 1px dashed red;
+}
+.lt_container .lt_search ul li {
+  height: 30px;
+  border-bottom: 1px dashed red;
+  line-height: 30px;
+}
+.lt_container .lt_search ul li:last-child {
+  border-bottom: none;
+}
+
+.lt_container .lt_search ul li a {
+  padding: 0 10px;
+  font-size: 12px;
+}
+.lt_container .lt_search ul li i {
+  line-height: 30px;
+}

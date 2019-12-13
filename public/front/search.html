@@ -8,29 +8,42 @@
   <link rel="stylesheet" href="./css/common.css">
   <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
   <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/category.css">
+  <link rel="stylesheet" href="./css/search.css">
   <title>My乐淘</title>
 </head>
 
 <body>
-  <!-- 一级分类模板引擎渲染 -->
-  <script type="text/html" id="first_tpl">
+  <!-- 模板引擎渲染历史记录 -->
+  <script type="text/html" id="tpl">
 
-    {{ each rows v i}}
-    <li class="{{i === 0 ? 'current' : ''}}" data-id="{{v.id}}">
-      <a href="#">{{v.categoryName}}</a>
-    </li>
-    {{ /each }}
+    {{ if arr.length === 0}}
+    <p>&nbsp &nbsp 没有更多的数据了！</p>
+
+    {{ else }}
+     <!-- 搜索历史中间标题-->
+     <div class="title mui-clearfix">
+      <span class="mui-pull-left">搜索历史</span>
+      <span class="mui-pull-right clearRecords"><i class="fa fa-trash"></i>清空记录</span>
+    </div>
+    <!-- 历史记录 -->
+    <div class="lt_history">
+      <ul>
+        {{ each arr v i}}
+        <li>
+          <a href="#" class="mui-pull-left">{{v}}</a>
+          <i class="mui-icon mui-icon-closeempty mui-pull-right delRecord" data-index="{{i}}"></i>
+        </li>
+        {{ /each }}
+
+      </ul>
+    </div>
+
+    {{ /if }}
+    
+
+      
+
   </script>
-
-  <!-- 二级分类模板引擎渲染 -->
-
-  <script type="text/html" id="second_tpl">
-    {{ each rows v i}}
-    <li><a href="#"><img src="{{v.brandLogo}}" alt=""><p>{{v.brandName}}</p></a></li>
-    {{ /each }}
-  </script>
-
 
   <div class="lt_container">
     <!-- 头 -->
@@ -38,56 +51,60 @@
       <div class="center">
         <div class="main">
           <!-- 从这里开始显示主要的内容 -->
-          乐淘云购
+          搜索中心
         </div>
       </div>
       <div class="left">
-        <a href="index.html">
-          <span class="fa fa-home"></span>
+        <!-- 在搜索页面这是返回上一个连接，js中返回上一个连接的方法:
+          history.back()
+          history.go(-1)
+        -->
+        <a href="javascript:history.back();">
+          <span class="mui-icon mui-icon-back"></span>
         </a>
       </div>
       <div class="right">
-        <a href="search.html">
-          <span class="fa fa-search"></span>
+        <a href="javascript:;">
+          <!-- <span class="fa fa-search"></span> -->
         </a>
       </div>
     </div>
 
-    <!-- 左中固定部分 -->
-    <div class="center_left">
+
+    <!-- 搜索中间的内容 -->
+    <div class="lt_search">
       <div class="mui-scroll-wrapper">
         <div class="mui-scroll">
           <!--这里放置真实显示的DOM内容-->
-          <ul class="mui-clearfix" id="first_ul">
 
-           <!-- 里面的数据通过模板引擎来渲染 ，占个位 -->
+          <div class="header">
+            <input type="text" placeholder="请输入搜索关键字">
+            <button class="mui-btn mui-btn-primary addRecord">搜索</button>
+          </div>
 
-          </ul>
+
+
+          <div class="main_history">
+
+            <!-- 用于模板引擎来进行渲染，挖个坑 -->
+
+          </div>
+
+
+
 
         </div>
       </div>
     </div>
 
-    <!-- 右中自适应部分 -->
-    <div class="center_right">
-      <div class="mui-scroll-wrapper">
-        <div class="mui-scroll">
-          <!--这里放置真实显示的DOM内容-->
-          <ul class="mui-clearfix" id="second_ul">
 
-           
-           
-          </ul>
-          
-        </div>
-      </div>
-    </div>
+
 
     <!-- 底部 -->
     <div class="lt_footer">
       <ul class="mui-clearfix">
         <li>
-          <a href="index.html">
+          <a href="index.html" class="current" id="123">
             <span class="fa fa-home"></span>
             <p>首页</p>
           </a>
@@ -113,12 +130,11 @@
       </ul>
     </div>
   </div>
-
-  <script src="./lib/mui/js/mui.js"></script>
   <script src="./lib/zepto/zepto.min.js"></script>
-  <script src="./js/common.js"></script>
   <script src="./lib/artTemplate/template-web.js"></script>
-  <script src="./js/category.js"></script>
+  <script src="./lib/mui/js/mui.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/search.js"></script>
 </body>
 
 </html>
