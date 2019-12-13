@@ -7,46 +7,36 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <style>
-    li:nth-last-child(odd) {
-      color: lime;
-    }
-
-    .parent {
-      width: 400px;
-      height: 400px;
-      border: 1px solid #ccc;
-    }
-
-    .parent>.erzi {
+    .son {
       width: 100px;
       height: 100px;
-      background-color: lime;
+      background-color: #666;
+      /* float: left;
+     display: block; */
     }
-
-    .parent .sunzi {
-      width: 50px;
-      height: 50px;
-      background-color: yellow;
+    img {
+      /* display: block; */
     }
-    div {
-      width: 100px;
-      height: 100px;
-      border: 1px solid #ccc;
+    .par {
+      /* display: block; */
     }
   </style>
 </head>
 
 <body>
-  <button >点击添加元素</button>
+  <button>点击添加元素</button>
   <div></div>
-  
+  <div class="gf">
+    <span class="par">
+      <!-- <img src="../letao/public/front/images/nav1.png" alt=""> -->
+      <div class="son"> </div>
+    </span>
+  </div>
+
+
   <script src="./public/back/lib/jquery/jquery.js"></script>
   <script>
 
-    $('button').click(() => {
-      $('div').prepend('<h1>你好啊</h1>')
-
-    })
   </script>
 </body>
 

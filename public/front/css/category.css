@@ -1,0 +1,50 @@
+.lt_container .center_left {
+  position: absolute;
+  width: 90px;
+  background-color: #cccc;
+  top: 45px;
+  bottom: 55px;
+  left: 0;
+
+}
+
+.lt_container .center_right {
+  position: absolute;
+  background-color: #fff;
+  top: 45px;
+  bottom: 55px;
+  right: 0;
+  left: 90px;
+}
+
+.lt_container .center_left ul li {
+  float: left;
+  height: 50px;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  text-align: center;
+  line-height: 50px;
+  cursor: pointer;
+}
+.lt_container .center_left ul li.current {
+  background-color: #fff;
+  border-right: none ;
+}
+
+.lt_container .center_left ul li a {
+  color: #666666;
+  display: block;
+}
+
+/* 右边自适应部分 */
+.lt_container .center_right ul li {
+  float: left;
+  width: 33.3333%;
+  text-align: center;
+
+}
+.lt_container .center_right ul li img {
+  width: 70px;
+  height: 50px;
+}
