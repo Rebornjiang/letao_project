@@ -14,11 +14,11 @@
 
 <body>
   <!-- 动态渲染商品列表列 -->
-
+  <!-- 商品下拉会禁止a连接的点击事件 -->
   <script type="text/html" id="tpl">
     {{each data v i}}
     <li>
-        <a href="#">
+        <a data-id={{v.id}} href="product_detail.html?productId={{v.id}}">
           <img src="{{v.pic[0].picAddr}}" alt="">
           <p class="desc mui-ellipsis-2">
             {{v.proName}}
@@ -105,7 +105,7 @@
           <!-- 商品展示 -->
           
           <div class="product">
-            <ul>
+            <ul class="mui-clearfix">
 
             <!-- 挖个坑用于动态渲染结构 -->
               <!-- <div class="loading"></div> -->
