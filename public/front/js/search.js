@@ -84,11 +84,19 @@ $(function() {
       arr.splice(arr.indexOf(str),1)
     }
 
-    //添加新的记录
-    
+
+    //添加新的记录    
+    if (arr.length >= 10) {
+      arr.pop()
+    }
     arr.unshift(str)
     saveHistoryRecords(arr)
     render()
     $('.lt_search .header input').val('')
+
+    // 进行页面跳转
+    location.href = "search_list.html?key=" + str
   })
+
+
 })

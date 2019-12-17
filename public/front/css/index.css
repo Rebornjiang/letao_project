@@ -19,27 +19,3 @@
   width: 100%;
 }
 
-/* 商品区域 */
-.lt_main .product {
-  padding: 10px;
-}
-
-.lt_main .product img {
-  width: 150px;
-  height: 150px;
-}
-
-.lt_main .product li {
-  box-sizing: border-box;
-  padding: 10px;
-  width: 48%;
-  float: left;
-  border: 1px solid #ccc;
-  text-align: center;
-}
-.lt_main .product li a {
-  display: block;
-}
-.lt_main .product li:nth-child(even) {
-  margin-left: 4%;
-}
