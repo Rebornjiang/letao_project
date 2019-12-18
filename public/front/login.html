@@ -8,29 +8,10 @@
   <link rel="stylesheet" href="./css/common.css">
   <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
   <link rel="stylesheet" href="./lib/fa/css/font-awesome.min.css">
-  <link rel="stylesheet" href="./css/category.css">
   <title>My乐淘</title>
 </head>
 
 <body>
-  <!-- 一级分类模板引擎渲染 -->
-  <script type="text/html" id="first_tpl">
-
-    {{ each rows v i}}
-    <li class="{{i === 0 ? 'current' : ''}}" data-id="{{v.id}}">
-      <a href="#">{{v.categoryName}}</a>
-    </li>
-    {{ /each }}
-  </script>
-
-  <!-- 二级分类模板引擎渲染 -->
-
-  <script type="text/html" id="second_tpl">
-    {{ each rows v i}}
-    <li><a href="#"><img src="{{v.brandLogo}}" alt=""><p>{{v.brandName}}</p></a></li>
-    {{ /each }}
-  </script>
-
 
   <div class="lt_container">
     <!-- 头 -->
@@ -38,62 +19,55 @@
       <div class="center">
         <div class="main">
           <!-- 从这里开始显示主要的内容 -->
-          乐淘云购
+          登录
         </div>
       </div>
       <div class="left">
         <a href="index.html">
-          <span class="fa fa-home"></span>
+          <span class="mui-icon mui-icon-back"></span>
         </a>
       </div>
       <div class="right">
         <a href="search.html">
-          <span class="fa fa-search"></span>
+          <!-- <span class="fa fa-search"></span> -->
         </a>
       </div>
     </div>
 
-    <!-- 左中固定部分 -->
-    <div class="center_left">
+    <!-- 主体部门 -->
+    <div class="lt_main">
       <div class="mui-scroll-wrapper">
         <div class="mui-scroll">
           <!--这里放置真实显示的DOM内容-->
-          <ul class="mui-clearfix" id="first_ul">
-
-           <!-- 里面的数据通过模板引擎来渲染 ，占个位 -->
-
-          </ul>
+          <div class="mui-input-row">
+            <label>用户名</label>
+            <input type="text" class="mui-input-clear"id="username" placeholder="请输入用户名">
+          </div>
+          <div class="mui-input-row">
+            <label>密码</label>
+            <input type="password" class="mui-input-password" id="password" placeholder="请输入密码">
+          </div>
+          <div class="mui-button-row">
+            <button type="button" class="mui-btn mui-btn-primary" id="loginBtn">登录</button>
+            <button type="button" class="mui-btn mui-btn-danger">重置</button>
+          </div>
 
         </div>
       </div>
     </div>
 
-    <!-- 右中自适应部分 -->
-    <div class="center_right">
-      <div class="mui-scroll-wrapper">
-        <div class="mui-scroll">
-          <!--这里放置真实显示的DOM内容-->
-          <ul class="mui-clearfix" id="second_ul">
-
-           
-           
-          </ul>
-          
-        </div>
-      </div>
-    </div>
 
     <!-- 底部 -->
     <div class="lt_footer">
       <ul class="mui-clearfix">
         <li>
-          <a href="index.html">
+          <a href="index.html" id="123">
             <span class="fa fa-home"></span>
             <p>首页</p>
           </a>
         </li>
         <li>
-          <a href="category.html" class="current">
+          <a href="category.html">
             <span class="fa fa-bars"></span>
             <p>分类页</p>
           </a>
@@ -105,7 +79,7 @@
           </a>
         </li>
         <li>
-          <a href="user.html">
+          <a href="user.html" class="current">
             <span class="fa fa-user"></span>
             <p>用户中心</p>
           </a>
@@ -113,12 +87,10 @@
       </ul>
     </div>
   </div>
-
-  <script src="./lib/mui/js/mui.js"></script>
   <script src="./lib/zepto/zepto.min.js"></script>
+  <script src="./lib/mui/js/mui.js"></script>
   <script src="./js/common.js"></script>
-  <script src="./lib/artTemplate/template-web.js"></script>
-  <script src="./js/category.js"></script>
+  <script src="./js/login.js"></script>
 </body>
 
 </html>

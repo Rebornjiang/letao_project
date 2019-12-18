@@ -1,0 +1,52 @@
+.lt_search {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  right: 0;
+  bottom: 55px;
+}
+
+.lt_search .wrape {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.lt_search .price {
+  font-size: 17px;
+  color: red;
+}
+.lt_search .oldprice {
+  font-size: 12px;
+  text-decoration: line-through;
+}
+/* 行内元素默认不能够设置宽高的
+需要转成行内块元素或是转成 块级 浮动等等 */
+.lt_search {
+  background-color: #fff;
+}
+.lt_search .lt_size span {
+  border: 1px solid #ccc;
+  font-size: 12px;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  display: inline-block;
+  margin: 3px 0;
+}
+
+.lt_search .lt_size span.current {
+  background-color: orange;
+  color: white;
+}
+
+.lt_search .remainnum {
+  font-size: 12px;
+}
+
+/* footer区域 */
+.lt_container .lt_footer {
+  padding: 10px;
+  line-height: 35px;
+  background-color: #EFEFF4;
+}
